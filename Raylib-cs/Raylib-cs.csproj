@@ -30,11 +30,14 @@
   <ItemGroup>
     <None Include="logo/raylib-cs_64x64.png" Pack="true" PackagePath="" />
     <None Include="../README.md" Pack="true" PackagePath="" />
+    <None Include="runtimes\win-x64\native\raylib.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Numerics.Vectors" Version="4.5.0" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All"/>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
   </ItemGroup>
 
   <Import Project="./Build.props" />
@@ -50,6 +53,7 @@
   <ItemGroup>
     <Compile Include="interop\*.cs" />
     <Compile Include="types\*.cs" />
+    <Content Remove="runtimes\win-x64\native\raylib.dll" />
     <Compile Include="types\native\CBool.cs" />
     <Compile Include="types\native\AnsiBuffer.cs" />
     <Compile Include="types\native\Utf8Buffer.cs" />
