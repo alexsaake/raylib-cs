@@ -696,7 +696,7 @@ public static unsafe partial class Rlgl
     public static extern uint LoadShaderCode(sbyte* vsCode, sbyte* fsCode);
 
     /// <summary>Compile custom shader and return shader id<br/>
-    /// (type: VERTEX_SHADER, FRAGMENT_SHADER, COMPUTE_SHADER)</summary>
+    /// (type: VERTEX_SHADER, FRAGMENT_SHADER, COMPUTE_SHADER, MESH_SHADER, TASK_SHADER)</summary>
     [DllImport(NativeLibName, EntryPoint = "rlCompileShader", CallingConvention = CallingConvention.Cdecl)]
     public static extern uint CompileShader(sbyte* shaderCode, int type);
 
@@ -746,6 +746,21 @@ public static unsafe partial class Rlgl
     /// <summary>Dispatch compute shader (equivalent to *draw* for graphics pilepine)</summary>
     [DllImport(NativeLibName, EntryPoint = "rlComputeShaderDispatch", CallingConvention = CallingConvention.Cdecl)]
     public static extern void ComputeShaderDispatch(uint groupX, uint groupY, uint groupZ);
+
+
+    // Mesh shader management
+
+    /// <summary>Load mesh shader program</summary>
+    [DllImport(NativeLibName, EntryPoint = "rlLoadMeshShaderProgramS", CallingConvention = CallingConvention.Cdecl)]
+    public static extern uint LoadMeshShaderProgram(uint mShaderId, uint fShaderId);
+
+    /// <summary>Load mesh shader program</summary>
+    [DllImport(NativeLibName, EntryPoint = "rlLoadMeshShaderProgram", CallingConvention = CallingConvention.Cdecl)]
+    public static extern uint LoadMeshShaderProgram(uint tShaderId, uint mShaderId, uint fShaderId);
+
+    /// <summary>Draw mesh shader</summary>
+    [DllImport(NativeLibName, EntryPoint = "rlDrawMeshTasks", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void DrawMeshTasks(uint first, uint count);
 
 
     // Shader buffer storage object management (ssbo)

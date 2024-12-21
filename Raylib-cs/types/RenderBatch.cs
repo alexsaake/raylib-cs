@@ -307,5 +307,19 @@ public enum ShaderType
     /// <br/>
     /// GL_COMPUTE_SHADER
     /// </summary>
-    Compute = 0x91b9
+    Compute = 0x91b9,
+
+    /// <summary>
+    /// RL_MESH_SHADER
+    /// <br/>
+    /// GL_MESH_SHADER
+    /// </summary>
+    Mesh = 0x9559,
+
+    /// <summary>
+    /// RL_TASK_SHADER
+    /// <br/>
+    /// GL_TASK_SHADER
+    /// </summary>
+    Task = 0x955A
 }
