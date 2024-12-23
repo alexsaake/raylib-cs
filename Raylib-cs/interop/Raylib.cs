@@ -362,6 +362,26 @@ public static unsafe partial class Raylib
     [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
     public static extern Shader LoadShaderFromMemory(sbyte* vsCode, sbyte* fsCode);
 
+    /// <summary>Load mesh shader from files and bind default locations</summary>
+    [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
+    public static extern Shader LoadMeshShader(sbyte* tsFileName, sbyte* msFileName, sbyte* fsFileName);
+
+    /// <summary>Load mesh shader from code strings and bind default locations</summary>
+    [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
+    public static extern Shader LoadMeshShaderFromMemory(sbyte* tsCode, sbyte* msCode, sbyte* fsCode);
+
+    /// <summary>Load mesh shader from files and bind default locations</summary>
+    [DllImport(NativeLibName, EntryPoint = "LoadMeshShaderS", CallingConvention = CallingConvention.Cdecl)]
+    public static extern Shader LoadMeshShader(sbyte* msFileName, sbyte* fsFileName);
+
+    /// <summary>Load mesh shader from code strings and bind default locations</summary>
+    [DllImport(NativeLibName, EntryPoint = "LoadMeshShaderFromMemoryS", CallingConvention = CallingConvention.Cdecl)]
+    public static extern Shader LoadMeshShaderFromMemory(sbyte* msCode, sbyte* fsCode);
+
+    /// <summary>Draw mesh shader</summary>
+    [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
+    public static extern void DrawMeshTasks(uint first, uint count);
+
     /// <summary>Check if a shader is valid (loaded on GPU)</summary>
     [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
     public static extern CBool IsShaderValid(Shader shader);

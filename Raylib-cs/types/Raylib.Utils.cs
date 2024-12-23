@@ -69,6 +69,40 @@ public static unsafe partial class Raylib
         return LoadShaderFromMemory(str1.AsPointer(), str2.AsPointer());
     }
 
+    /// <summary>Load mesh shader from files and bind default locations</summary>
+    public static Shader LoadMeshShader(string msFileName, string fsFileName)
+    {
+        using var str1 = msFileName.ToAnsiBuffer();
+        using var str2 = fsFileName.ToAnsiBuffer();
+        return LoadMeshShader(str1.AsPointer(), str2.AsPointer());
+    }
+
+    /// <summary>Load mesh shader from code string and bind default locations</summary>
+    public static Shader LoadMeshShaderFromMemory(string tsCode, string msCode, string fsCode)
+    {
+        using var str1 = tsCode.ToUtf8Buffer();
+        using var str2 = msCode.ToUtf8Buffer();
+        using var str3 = fsCode.ToUtf8Buffer();
+        return LoadMeshShaderFromMemory(str1.AsPointer(), str2.AsPointer(), str3.AsPointer());
+    }
+
+    /// <summary>Load mesh shader from files and bind default locations</summary>
+    public static Shader LoadMeshShader(string tsFileName, string msFileName, string fsFileName)
+    {
+        using var str1 = tsFileName.ToAnsiBuffer();
+        using var str2 = msFileName.ToAnsiBuffer();
+        using var str3 = fsFileName.ToAnsiBuffer();
+        return LoadMeshShader(str1.AsPointer(), str2.AsPointer(), str3.AsPointer());
+    }
+
+    /// <summary>Load mesh shader from code string and bind default locations</summary>
+    public static Shader LoadMeshShaderFromMemory(string msCode, string fsCode)
+    {
+        using var str1 = msCode.ToUtf8Buffer();
+        using var str2 = fsCode.ToUtf8Buffer();
+        return LoadMeshShaderFromMemory(str1.AsPointer(), str2.AsPointer());
+    }
+
     /// <summary>Get shader uniform location</summary>
     public static int GetShaderLocation(Shader shader, string uniformName)
     {
