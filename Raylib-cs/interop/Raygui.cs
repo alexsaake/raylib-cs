@@ -18,10 +18,28 @@ public static unsafe partial class Raygui
     public static extern void GuiDisable();
 
     [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
-    public static extern int GuiCheckBox(Rectangle bounds, char* text, bool* check);
+    public static extern int GuiGroupBox(Rectangle bounds, char* text);
+
+    [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
+    public static extern int GuiLine(Rectangle bounds, char* text);
+
+    [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
+    public static extern int GuiPanel(Rectangle bounds, char* text);
 
     [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
     public static extern int GuiLabel(Rectangle bounds, char* text);
+
+    [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
+    public static extern int GuiButton(Rectangle bounds, char* text);
+
+    [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
+    public static extern int GuiToggleSlider(Rectangle bounds, char* text, int* active);
+
+    [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
+    public static extern int GuiValueBox(Rectangle bounds, char* text, int* value, int minValue, int maxValue, bool editMode);
+
+    [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
+    public static extern int GuiValueBoxFloat(Rectangle bounds, char* text, char* textValue, float* value, bool editMode);
 
     [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
     public static extern int GuiTextBox(Rectangle bounds, char* text, int textSize, bool editMode);
