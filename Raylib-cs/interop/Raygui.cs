@@ -18,6 +18,12 @@ public static unsafe partial class Raygui
     public static extern void GuiDisable();
 
     [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
+    public static extern void GuiLock();
+
+    [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
+    public static extern void GuiUnlock();
+
+    [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
     public static extern int GuiGroupBox(Rectangle bounds, char* text);
 
     [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
