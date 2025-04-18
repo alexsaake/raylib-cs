@@ -747,6 +747,10 @@ public static unsafe partial class Rlgl
     [DllImport(NativeLibName, EntryPoint = "rlComputeShaderDispatch", CallingConvention = CallingConvention.Cdecl)]
     public static extern void ComputeShaderDispatch(uint groupX, uint groupY, uint groupZ);
 
+    /// <summary>Memory barrier</summary>
+    [DllImport(NativeLibName, EntryPoint = "rlMemoryBarrier", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void MemoryBarrier();
+
 
     // Mesh shader management
 
