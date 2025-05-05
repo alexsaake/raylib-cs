@@ -65,7 +65,7 @@ public unsafe partial struct Mesh
     /// <summary>
     /// Vertex indices (in case vertex data comes indexed)
     /// </summary>
-    public ushort* Indices = default;
+    public uint* Indices = default;
 
     /// <summary>
     /// Allocate <see cref="Vertices"/>
@@ -120,7 +120,7 @@ public unsafe partial struct Mesh
     /// </summary>
     public void AllocIndices()
     {
-        Indices = Raylib.New<ushort>(3 * (uint)TriangleCount);
+        Indices = Raylib.New<uint>(3 * (uint)TriangleCount);
     }
 
     /// <summary>
@@ -176,7 +176,7 @@ public unsafe partial struct Mesh
     /// </summary>
     public readonly Span<T> IndicesAs<T>() where T : unmanaged
     {
-        return new(Indices, 3 * TriangleCount * sizeof(ushort) / sizeof(T));
+        return new(Indices, 3 * TriangleCount * sizeof(uint) / sizeof(T));
     }
 
     #endregion
