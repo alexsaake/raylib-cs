@@ -12,24 +12,6 @@ public static unsafe partial class Raygui
     public const string NativeLibName = "raylib";
 
     [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
-    public static extern void GuiEnable();
-
-    [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
-    public static extern void GuiDisable();
-
-    [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
-    public static extern void GuiLock();
-
-    [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
-    public static extern void GuiUnlock();
-
-    [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
-    public static extern int GuiGroupBox(Rectangle bounds, char* text);
-
-    [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
-    public static extern int GuiLine(Rectangle bounds, char* text);
-
-    [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
     public static extern int GuiPanel(Rectangle bounds, char* text);
 
     [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
@@ -48,5 +30,8 @@ public static unsafe partial class Raygui
     public static extern int GuiValueBoxFloat(Rectangle bounds, char* text, char* textValue, float* value, bool editMode);
 
     [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
-    public static extern int GuiTextBox(Rectangle bounds, char* text, int textSize, bool editMode);
+    public static extern int GuiComboBox(Rectangle bounds, char* text, int* active);
+
+    [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl)]
+    public static extern int GuiSlider(Rectangle bounds, char* textLeft, char* textRight, float* value, float minValue, float maxValue);
 }
